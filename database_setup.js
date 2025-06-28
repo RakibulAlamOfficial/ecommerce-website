@@ -159,6 +159,42 @@ products.forEach(p => {
         if (err) console.error("Error inserting products:", err.message);
         else console.log("Sample products inserted.");
     });
+
+    // ==========================================================
+// ===== PERMANENT ADMIN CREATION (add this block) ======
+// ==========================================================
+
+const bcrypt = require('bcrypt'); // Make sure bcrypt is required at the top
+const saltRounds = 10;
+
+const adminEmail = 'rakibulalamnabil22@gmail.com'; // Your chosen admin email
+const adminUsername = 'admin';
+const adminPassword = 'Bristy1020';
+
+// Hash the password
+bcrypt.hash(adminPassword, saltRounds, (err, hash) => {
+    if (err) {
+        return console.error("Error hashing admin password:", err.message);
+    }
+    
+    // SQL to insert the admin user only if the email doesn't already exist
+    const adminSql = `INSERT INTO users (username, email, password, is_admin)
+        SELECT ?, ?, ?, 1
+        WHERE NOT EXISTS (SELECT 1 FROM users WHERE email = ?)`;
+
+    db.run(adminSql, [adminUsername, adminEmail, hash, adminEmail], (err) => {
+        if (err) {
+            return console.error("Error creating permanent admin:", err.message);
+        }
+        console.log("Permanent admin account checked/created successfully.");
+    });
 });
+
+// Make sure you have this line at the top of the file too:
+// const sqlite3 = require('sqlite3').verbose();
+// const bcrypt = require('bcrypt'); // ADD THIS if it's not there already
+});
+
+
 
 db.close();
