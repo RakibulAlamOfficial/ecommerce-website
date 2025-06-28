@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": {
-  "start": "node server.js"
+ "scripts": {
+  "start": "node server.js",
+  "postinstall": "node database_setup.js"
 },
 "engines": {
   "node": ">=18.0.0"
