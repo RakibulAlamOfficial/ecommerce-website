@@ -409,24 +409,6 @@ app.post('/admin/banners/activate/:id', requireAdmin, (req, res) => {
         });
     });
 });
-// --- THIS IS THE SECRET ADMIN PROMOTION ROUTE ---
-// Use this only once, then delete it for security.
-
-app.get('/super-secret-admin-promo/:emailToPromote', (req, res) => {
-    const userEmail = req.params.emailToPromote;
-    const sql = "UPDATE users SET is_admin = 1 WHERE email = ?";
-    
-    db.run(sql, [userEmail], function(err) {
-        if (err) {
-            return res.status(500).send("Error trying to update the user. Check the server logs.");
-        }
-        if (this.changes === 0) {
-            return res.status(404).send(`User with the email '${userEmail}' was not found in the database.`);
-        }
-        res.status(200).send(`<h1>Success!</h1><p>The user with email '${userEmail}' has been promoted to an admin.</p><a href="/">Go to Homepage</a>`);
-    });
-});
-
 
 // Start the server
 app.listen(port, () => {
