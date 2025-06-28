@@ -357,6 +357,23 @@ app.post('/admin/products/delete/:id', requireAdmin, (req, res) => {
     });
 });
 
+// --- TEMPORARY ADMIN PROMOTION ROUTE ---
+// Use this only once, then delete it for security.
+app.get('/make-me-an-admin/:email', (req, res) => {
+    const userEmail = req.params.email;
+    const sql = "UPDATE users SET is_admin = 1 WHERE email = ?";
+    
+    db.run(sql, [userEmail], function(err) {
+        if (err) {
+            return res.send("Error updating user.");
+        }
+        if (this.changes === 0) {
+            return res.send("User with that email not found.");
+        }
+        res.send(`User ${userEmail} has been promoted to admin!`);
+    });
+});
+
 
 // --- NEW: Admin Routes for Banners ---
 
