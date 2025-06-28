@@ -211,8 +211,9 @@ app.post('/login', (req, res) => {
 });
 
 // Show Signup Page
-// Show Signup Page
-app.get('/signup', (req, res) => res.render('signup'));
+app.get('/signup', (req, res) => {
+    res.render('signup');
+});
 // Handle Signup
 app.post('/signup', (req, res) => {
     const { username, email, password } = req.body;
