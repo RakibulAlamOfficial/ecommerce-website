@@ -171,30 +171,44 @@ const adminEmail = 'rakibulalamnabil22@gmail.com'; // Your chosen admin email
 const adminUsername = 'admin';
 const adminPassword = 'Bristy1020';
 
-// Hash the password
-bcrypt.hash(adminPassword, saltRounds, (err, hash) => {
+// Check if the admin user already exists
+db.get(`SELECT * FROM users WHERE email = ?`, [adminEmail], (err, row) => {
     if (err) {
-        return console.error("Error hashing admin password:", err.message);
+        return console.error(err.message);
     }
-    
-    // SQL to insert the admin user only if the email doesn't already exist
-    const adminSql = `INSERT INTO users (username, email, password, is_admin)
-        SELECT ?, ?, ?, 1
-        WHERE NOT EXISTS (SELECT 1 FROM users WHERE email = ?)`;
+    // If the user does NOT exist, create them
+    if (!row) {
+        const saltRounds = 10;
+        bcrypt.hash(adminPassword, saltRounds, (err, hash) => {
+            if (err) {
+                return console.error("Error hashing admin password:", err.message);
+            }
+            const adminSql = `INSERT INTO users (username, email, password, is_admin) VALUES (?, ?, ?, 1)`;
+            db.run(adminSql, [adminUsername, adminEmail, hash], (err) => {
+                if (err) {
+                    return console.error("Error creating permanent admin:", err.message);
+                }
+                console.log(`Permanent admin account '${adminUsername}' created successfully.`);
+            });
+        });
+    } else {
+        console.log("Permanent admin account already exists.");
+    }
+});
 
-    db.run(adminSql, [adminUsername, adminEmail, hash, adminEmail], (err) => {
+});
+
+
+
+// --- REPLACE your old db.close() with this ---
+
+// This ensures we close the database only after all operations are done.
+// We'll just add a small delay as a simple way to manage this.
+setTimeout(() => {
+    db.close((err) => {
         if (err) {
-            return console.error("Error creating permanent admin:", err.message);
+            return console.error(err.message);
         }
-        console.log("Permanent admin account checked/created successfully.");
+        console.log('Closed the database connection.');
     });
-});
-
-// Make sure you have this line at the top of the file too:
-// const sqlite3 = require('sqlite3').verbose();
-// const bcrypt = require('bcrypt'); // ADD THIS if it's not there already
-});
-
-
-
-db.close();
+}, 2000); // Wait 2 seconds before closing
