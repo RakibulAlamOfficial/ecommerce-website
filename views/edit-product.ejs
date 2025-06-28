@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Edit Product Fashion World</title>
+    <link rel="stylesheet" href="/css/style.css">
+   <!-- This is the NEW, CORRECTED Favicon link -->
+<link rel="icon" type="image/x-icon" href="/img/logo/favicon.ico">
+</head>
+<body>
+    <section class="section-p1">
+        <h1>Admin Panel - Edit Product</h1>
+        <a href="/admin/products">Back to Product List</a> | <a href="/logout">Logout</a>
+    </section>
+
+    <section class="section-p1">
+        <h2>Editing: <%= product.name %></h2>
+        
+        <form action="/admin/products/edit/<%= product.id %>" method="POST" class="admin-form">
+            <label for="name">Product Name</label>
+            <input type="text" id="name" name="name" value="<%= product.name %>" required>
+
+            <label for="brand">Brand</label>
+            <input type="text" id="brand" name="brand" value="<%= product.brand %>" required>
+
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" value="<%= product.price %>" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4" required><%= product.description %></textarea>
+
+            <label for="image_url">Main Image Path</label>
+            <input type="text" id="image_url" name="image_url" value="<%= product.image_url %>" required>
+
+            <label for="thumb1">Thumbnail 1 Path</label>
+            <input type="text" id="thumb1" name="thumb1" value="<%= product.thumb1 || '' %>">
+
+            <label for="thumb2">Thumbnail 2 Path</label>
+            <input type="text" id="thumb2" name="thumb2" value="<%= product.thumb2 || '' %>">
+
+            <label for="thumb3">Thumbnail 3 Path</label>
+            <input type="text" id="thumb3" name="thumb3" value="<%= product.thumb3 || '' %>">
+
+            <label for="thumb4">Thumbnail 4 Path</label>
+            <input type="text" id="thumb4" name="thumb4" value="<%= product.thumb4 || '' %>">
+
+            <button type="submit" class="normal">Update Product</button>
+        </form>
+    </section>
+</body>
+</html>

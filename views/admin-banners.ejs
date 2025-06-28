@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Manage Banners Fashion World</title>
+    <link rel="stylesheet" href="/css/style.css">
+   <!-- This is the NEW, CORRECTED Favicon link -->
+<link rel="icon" type="image/x-icon" href="/img/logo/favicon.ico">
+</head>
+<body>
+    <section class="section-p1">
+        <h1>Admin Panel - Manage Banners</h1>
+        <a href="/admin/products">Manage Products</a> | <a href="/">Back to Site</a> | <a href="/logout">Logout</a>
+    </section>
+
+    <section class="section-p1">
+        <h2>Add New Banner</h2>
+        <form action="/admin/banners/add" method="POST" class="admin-form">
+            <input type="text" name="title" placeholder="Main Title (e.g., super value deals)" required>
+            <input type="text" name="subtitle" placeholder="Subtitle (e.g., trade-in-offer)">
+            <input type="text" name="details" placeholder="Details (e.g., on all products)">
+            <input type="text" name="button_text" placeholder="Button Text (e.g., Shop Now)">
+            <input type="text" name="button_link" placeholder="Button Link (e.g., /shop)">
+            <input type="text" name="image_url" placeholder="Image Path (e.g., img/logo/520.jpeg)" required>
+            <button type="submit" class="normal">Add Banner</button>
+        </form>
+    </section>
+
+    <section class="admin-table-container section-p1">
+        <h2>Existing Banners</h2>
+        <table>
+            <thead><tr><th>Image</th><th>Title</th><th>Status</th><th>Actions</th></tr></thead>
+            <!-- This is the NEW, corrected tbody for admin-banners.ejs -->
+<tbody>
+    <% banners.forEach(banner => { %>
+        <tr>
+            <td><img src="/<%= banner.image_url %>" alt="" style="width: 100px;"></td>
+            <td><%= banner.title %></td>
+            <td><%= banner.is_active ? 'Active' : 'Inactive' %></td>
+            <td>
+                <% if (!banner.is_active) { %>
+                    <form action="/admin/banners/activate/<%= banner.id %>" method="POST">
+                        <button type="submit" class="btn-edit">Make Active</button>
+                    </form>
+                <% } %>
+            </td>
+        </tr>
+    <% }); %>
+</tbody>
+        </table>
+    </section>
+</body>
+</html>

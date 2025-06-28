@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion World</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+  <!-- This is the NEW, CORRECTED Favicon link -->
+<link rel="icon" type="image/x-icon" href="/img/logo/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"  />
+</head>
+<body>
+     <section id="header">
+        <a href="#"><img src="img/logo/4.jpg" class="logo" alt=""></a>
+     <div>
+        <ul id="navbar">
+             <li><a class="" href="/">home</a></li>
+             <li><a class="active" href="/shop">shop</a></li>
+             <li><a href="/about">About</a></li>
+             <li><a href="/contact">contact</a></li>
+             <li class="lg-bag"><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+           <!-- This is the NEW dynamic login/logout section -->
+
+<!-- Find and replace your entire login/logout if/else block with this -->
+
+<% if (isLoggedIn) { %>
+    <!-- If the user IS logged in... -->
+    <li><span>Welcome, <%= username %>!</span></li>
+    
+    <% if (isAdmin) { %>
+        <!-- ...AND they are an admin, show the admin link -->
+        <li><a href="/admin/products" style="color: red; font-weight: bold;">Admin Panel</a></li>
+    <% } %>
+
+    <li><a href="/logout">Logout</a></li>
+
+<% } else { %>
+    <!-- If the user IS NOT logged in, show this: -->
+    <li><a href="/login"><i class="fa-solid fa-user"></i></a></li>
+    <li><a href="/signup">Signup</a></li>
+<% } %>
+            <a href="#" id="close"><i class="far fa-times"></i></a>
+          
+             
+        </ul>
+    </div>
+  <div id="mobile">
+    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+    <i id="bar" class="fas fa-outdent"></i>
+  </div>
+    </section>
+<section id="prodeatails" class="section-p1">
+   <!-- Main Image -->
+<div class="single-pro-image">
+    <img src="/<%= product.image_url %>" width="100%" id="mainimg" alt="<%= product.name %>">
+    <!-- Keep your small image group as is for now, or make it dynamic later -->
+
+   <!-- This is the NEW dynamic thumbnail group -->
+<div class="smallimggtoup">
+    <!-- We will only show a thumbnail if its path exists in the database -->
+    <% if (product.thumb1) { %>
+    <div class="small-img-col">
+        <img src="/<%= product.thumb1 %>" width="100%" class="small-img" alt="Thumbnail 1">
+    </div>
+    <% } %>
+    
+    <% if (product.thumb2) { %>
+    <div class="small-img-col">
+        <img src="/<%= product.thumb2 %>" width="100%" class="small-img" alt="Thumbnail 2">
+    </div>
+    <% } %>
+
+    <% if (product.thumb3) { %>
+    <div class="small-img-col">
+        <img src="/<%= product.thumb3 %>" width="100%" class="small-img" alt="Thumbnail 3">
+    </div>
+    <% } %>
+
+    <% if (product.thumb4) { %>
+    <div class="small-img-col">
+        <img src="/<%= product.thumb4 %>" width="100%" class="small-img" alt="Thumbnail 4">
+    </div>
+    <% } %>
+</div>
+</div>
+
+<!-- Product Details -->
+<!-- This is the NEW, functional "Add to Cart" form -->
+<div class="single-pro-deatils">
+    <h6>Home / Salower</h6>
+    <h4><%= product.name %></h4>
+    <h2><%= product.price %>.00 TK</h2>
+
+    <form action="/cart/add/<%= product.id %>" method="POST">
+        <select>
+            <option>Select Size</option>
+            <option>XL</option>
+            <option>XXL</option>
+        </select>
+        <input type="number" name="quantity" value="1" min="1">
+        <button type="submit" class="normal">Add To Cart</button>
+    </form>
+
+   <h4>Product Details</h4>
+<span><%= product.description %></span>
+</div>
+</section>
+
+<!-- This is the NEW, CORRECT code for sproduct.ejs -->
+<section id="product1" class="section-p1">
+    <h2>featured products</h2>
+    <p>Bangladeshi Collection for eid New Morden Design</p>
+    <div class="pro-container">
+        
+        <% featuredProducts.forEach(product => { %>
+            <div class="pro" onclick="window.location.href='/product/<%= product.id %>'">
+                <img src="/<%= product.image_url %>" alt="<%= product.name %>">
+                <div class="des">
+                    <span><%= product.brand %></span>
+                    <h5><%= product.name %></h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <h4><%= product.price %>TK</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        <% }); %>
+
+    </div>
+</section>
+
+<section id="newslatter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>sign up for newslatter</h4>
+        <p>Get E-mail updates about our products <span> new offers</span></p>
+    </div>
+    <div class="from">
+        <input type="text" placeholder="your email address">
+        <button class="normal">sign up</button>
+    </div>
+</section>
+
+ <footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Fashion world</h3>
+        <p>Leading provider of premium Women Clothings </p>
+      </div>
+     
+
+      <div class="footer-section">
+        <h3>Quick Link</h3>
+        <ul>
+          <li><a href="/">home</a></li>
+          <li><a href="/shop">Products</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 24/4 sukrabad, Dhaka</p>
+          <p><i class="fas fa-phone"></i> +880 1234567993</p>
+          <p><i class="fas fa-envelope"></i> infofashionworld@gmail.com</p>
+      </div>
+
+      <div class="footer-section">
+          <h3>Business Hours</h3>
+          <p>Monday-Friday: 9AM - 6PM</p>
+          <p>Saturday: 10AM - 4PM</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+ <div class="footer-bottom">
+        <p>&copy; 2025 Fashion World . All Rights Reserved.</p>
+      </div>
+
+    
+  </div>
+</footer>
+
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion World</title>
+    <link rel="stylesheet" href="/css/style.css">
+  <!-- This is the NEW, CORRECTED Favicon link -->
+<link rel="icon" type="image/x-icon" href="/img/logo/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"  />
+</head>
+<body>
+     <section id="header">
+        <a href="#"><img src="/img/logo/4.jpg" class="logo" alt=""></a>
+    <div>
+        <ul id="navbar">
+             <li><a class="active" href="/">home</a></li>
+             <li><a href="/shop">shop</a></li>
+             <li><a href="/about">About</a></li>
+             <li><a href="/contact">contact</a></li>
+             <li class="lg-bag"><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <!-- This is the NEW dynamic login/logout section -->
+
+<!-- Find and replace your entire login/logout if/else block with this -->
+
+<% if (isLoggedIn) { %>
+    <li><span>Welcome, <%= username %>!</span></li>
+    <% if (isAdmin) { %>
+        <li><a href="/admin" style="color: red; font-weight: bold;">Admin Panel</a></li>
+    <% } %>
+    <li><a href="/logout">Logout</a></li>
+<% } else { %>
+    <li><a href="/login"><i class="fa-solid fa-user"></i></a></li>
+    <li><a href="/signup">Signup</a></li>
+<% } %>
+            <a href="#" id="close"><i class="far fa-times"></i></a>
+          
+             
+        </ul>
+    </div>
+  <div id="mobile">
+    <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+    <i id="bar" class="fas fa-outdent"></i>
+  </div>
+    </section>
+
+   <!-- This is the NEW, SAFER dynamic Hero section -->
+
+<% if (activeBanner) { %>
+    <!-- If an active banner exists, create the section with a background image -->
+    <section id="hero" style="background-image: url('/<%= activeBanner.image_url %>')">
+        <h4><%= activeBanner.subtitle %></h4>
+        <h2><%= activeBanner.title %></h2>
+        <h1><%= activeBanner.details %></h1>
+        <p>save more with coupons & up to 70% off !</p>
+        <a href="<%= activeBanner.button_link %>"><button><%= activeBanner.button_text %></button></a>
+    </section>
+<% } else { %>
+    <!-- Otherwise, create a fallback hero section without a background image -->
+    <section id="hero">
+        <h2>Welcome to our store!</h2>
+        <p>Check out our latest products.</p>
+    </section>
+<% } %>
+
+    <section id="feature" class="section-p1">
+        <div class="fe-box" >
+            <img src="/img/features/f1.png" alt="">
+            <h6>Free shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="/img/features/f2.png" alt="">
+            <h6>Online Order</h6>
+        </div>
+        <div class="fe-box">
+            <img src="/img/features/f3.png" alt="">
+            <h6>Save Money</h6>
+        </div>
+        <div class="fe-box">
+            <img src="/img/features/f4.png" alt="">
+            <h6>Promotion</h6>
+        </div>
+        <div class="fe-box">
+            <img src="/img/features/f5.png" alt="">
+            <h6>Happy  Sell</h6>
+        </div>
+        <div class="fe-box">
+            <img src="/img/features/f6.png" alt="">
+            <h6>F24/7 Support</h6>
+        </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+         <h2>Featured Products</h2>
+         <p>Bangladeshi Collection New Morden Design</p>
+               <div class="pro-container">
+               <% featuredProducts.forEach(product => { %>
+        <div class="pro" onclick="window.location.href='/product/<%= product.id %>'">
+            <img src="<%= product.image_url %>" alt="<%= product.name %>">
+            <div class="des">
+                <span><%= product.brand %></span>
+                <h5><%= product.name %></h5>
+                <div class="star">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <h4><%= product.price %>TK</h4>
+            </div>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+          <% }); %>
+           
+         </div>
+
+
+
+
+    </section>
+    <section id="banner" class="section-m1">
+        <h4>Repair Services</h4>
+        <h2>Up to <span> 70% Off</span>- All 3 Pices & Accessories</h2>
+        <button class="normal">Explore more</button>
+    </section>
+
+
+
+    <section id="product1" class="section-p1">
+        <h2>New Arrivals</h2>
+        <p>Bangladeshi Collection for eid New Morden Design</p>
+        <div class="pro-container">
+               <% newArrivals.forEach(product => { %>
+        <div class="pro" onclick="window.location.href='/product/<%= product.id %>'">
+            <img src="<%= product.image_url %>" alt="<%= product.name %>">
+            <div class="des">
+                <span><%= product.brand %></span>
+                <h5><%= product.name %></h5>
+                <div class="star">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <h4><%= product.price %>TK</h4>
+            </div>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    <% }); %>
+          
+        </div>
+   </section>
+   <section id="sm-banner" class="section-p1">
+    <div class="banner-box">
+        <h4>crazy deals</h4>
+        <h2>buy 1 get 1 Free</h2>
+        <span>The best classic dress is on sale at  care</span>
+        <button class="white">Learn More</button>
+    </div>
+    <div class="banner-box2">
+        <h4>Eid dress</h4>
+        <h2>Upcomming Eid</h2>
+        <span>The best classic dress is on sale at  care</span>
+        <button class="white">Collection</button>
+    </div>
+   </section>
+
+   <section id="banner3">
+    <div class="banner-box">
+        
+        <h2>Seasonal Sale</h2>
+        <h3> winter collaction-50% Off</h3>
+       
+    </div>
+    <div class="banner-box2">
+        
+        <h2>New Footwear Collection</h2>
+        <h3>spring / Summer</h3>
+       
+    </div>
+    <div class="banner-box3">
+        
+        <h2>T- Shirts</h2>
+        <h3> New Trendy Products</h3>
+       
+    </div>
+   </section>
+<section id="newslatter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>sign up for newslatter</h4>
+        <p>Get E-mail updates about our products <span> new offers</span></p>
+    </div>
+    <div class="from">
+        <input type="text" placeholder="your email address">
+        <button class="normal">sign up</button>
+    </div>
+</section>
+
+  <footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Fashion world</h3>
+        <p>Leading provider of premium Women Clothings </p>
+      </div>
+     
+
+       <div class="footer-section">
+        <h3>Quick Link</h3>
+        <ul>
+          <li><a href="/">home</a></li>
+          <li><a href="/shop">Products</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 24/4 sukrabad, Dhaka</p>
+          <p><i class="fas fa-phone"></i> +880 1234567993</p>
+          <p><i class="fas fa-envelope"></i> infofashionworld@gmail.com</p>
+      </div>
+
+      <div class="footer-section">
+          <h3>Business Hours</h3>
+          <p>Monday-Friday: 9AM - 6PM</p>
+          <p>Saturday: 10AM - 4PM</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+ <div class="footer-bottom">
+        <p>&copy; 2025 Fashion World . All Rights Reserved.</p>
+      </div>
+
+    
+  </div>
+</footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

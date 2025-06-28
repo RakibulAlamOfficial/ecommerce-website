@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion World Cart</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- This is the NEW, CORRECTED Favicon link -->
+<link rel="icon" type="image/x-icon" href="/img/logo/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <style>
+        /* ============================================ */
+/* ========= SHOPPING CART PAGE CSS ========= */
+/* ============================================ */
+
+/* --- Main Cart Table Styling --- */
+
+:root {
+      --primary: #009933;
+      --secondary: #0077b6;
+      --accent: #ff6b00;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --gray: #6c757d;
+      --light-bg: #ccf5ff;
+      --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+#cart {
+    overflow-x: auto; /* Allows table to be scrolled on very small screens if needed */
+}
+
+#cart table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+
+#cart table img {
+    width: 70px;
+}
+
+#cart table td:nth-child(1) { width: 100px; text-align: center; }
+#cart table td:nth-child(2) { width: 150px; text-align: center; }
+#cart table td:nth-child(3) { width: 250px; text-align: center; }
+#cart table td:nth-child(4),
+#cart table td:nth-child(5),
+#cart table td:nth-child(6) { width: 150px; text-align: center; }
+
+#cart table td input {
+    width: 70px;
+    padding: 10px 5px 10px 15px;
+}
+
+#cart table thead {
+    border: 1px solid #e2e9e1;
+    border-left: none;
+    border-right: none;
+}
+
+#cart table thead td {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 18px 0;
+}
+
+#cart table tbody tr td {
+    padding-top: 15px;
+    vertical-align: middle;
+}
+
+#cart table tbody td {
+    font-size: 14px;
+}
+
+/* --- Subtotal and Checkout Section Styling --- */
+#cart-add {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#subtotal {
+    width: 50%;
+    margin-bottom: 30px;
+    border: 1px solid #e2e9e1;
+    padding: 30px;
+}
+
+#subtotal table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#subtotal table td {
+    width: 50%;
+    border: 1px solid #e2e9e1;
+    padding: 10px;
+    font-size: 13px;
+}
+
+#subtotal h3 {
+    padding-bottom: 15px;
+}
+
+#subtotal button {
+    background-color: #088178;
+    color: #fff;
+    padding: 12px 20px;
+}
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 40px 80px 20px 80px; /* Adjusted padding */
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    /* On large screens, fit as many 250px columns as possible */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px; /* Increased gap for better spacing */
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.footer-section p,
+.footer-section li {
+    margin-bottom: 10px;
+    color: #ccc;
+    font-size: 14px; /* Standard font size */
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+}
+
+
+/* ============================================ */
+/* ========= CART RESPONSIVE STYLES ========= */
+/* ============================================ */
+
+@media (max-width: 799px) {
+    #subtotal {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Hide the original table header */
+    #cart thead {
+        display: none;
+    }
+
+    /* Make each row a distinct block */
+    #cart tbody tr {
+        display: block;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #e2e9e1;
+    }
+
+    /* Make each cell a full-width block */
+    #cart tbody td {
+        display: block;
+        text-align: right; /* Align value to the right */
+        position: relative;
+        padding: 10px 15px 10px 50%; /* Make space for the label on the left */
+        white-space: normal;
+    }
+
+    /* Create the label using the data-label attribute */
+    #cart tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        text-align: left;
+        font-weight: 600;
+        color: #000;
+    }
+
+    #cart tbody td:nth-child(1),
+    #cart tbody td:nth-child(2),
+    #cart tbody td:nth-child(3),
+    #cart tbody td:nth-child(4),
+    #cart tbody td:nth-child(5),
+    #cart tbody td:nth-child(6) {
+        width: 100%; /* Ensure they take full width */
+    }
+
+    #cart-add {
+        flex-direction: column;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Include the same header as your other pages -->
+    <section id="header">
+        <a href="/"><img src="/img/logo/4.jpg" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="/">home</a></li>
+                <li><a href="/shop">shop</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">contact</a></li>
+                <li class="lg-bag"><a class="active" href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <% if (isLoggedIn) { %>
+                    <li><span>Welcome, <%= username %>!</span></li>
+                    <li><a href="/logout">Logout</a></li>
+                <% } else { %>
+                    <li><a href="/login"><i class="fa-solid fa-user"></i></a></li>
+                    <li><a href="/signup">Signup</a></li>
+                <% } %>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+
+    <section id="page-header" class="about-me">
+        <h2>#cart</h2>
+        <p>Review your items and proceed to checkout.</p>
+    </section>
+
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+          <!-- This is the NEW, responsive-friendly tbody -->
+<tbody>
+    <% if (cart.length > 0) { %>
+        <% cart.forEach(item => { %>
+            <tr>
+                <td data-label="Remove"><a href="#"><i class="far fa-times-circle"></i></a></td>
+                <td data-label="Image"><img src="/<%= item.image_url %>" alt=""></td>
+                <td data-label="Product"><%= item.name %></td>
+                <td data-label="Price"><%= item.price %> TK</td>
+                <td data-label="Quantity"><input type="number" value="<%= item.quantity %>"></td>
+                <td data-label="Subtotal"><%= item.price * item.quantity %> TK</td>
+            </tr>
+        <% }); %>
+    <% } else { %>
+        <tr>
+            <td colspan="6">Your cart is empty.</td>
+        </tr>
+    <% } %>
+</tbody>
+        </table>
+    </section>
+
+    <section id="cart-add" class="section-p1">
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td><%= total %> TK</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong><%= total %> TK</strong></td>
+                </tr>
+            </table>
+            <button class="normal">Proceed to checkout</button>
+        </div>
+    </section>
+
+    <!-- Include the same footer as your other pages -->
+    <footer>
+        
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Fashion world</h3>
+        <p>Leading provider of premium Women Clothings </p>
+      </div>
+     
+
+       <div class="footer-section">
+        <h3>Quick Link</h3>
+        <ul>
+          <li><a href="/">home</a></li>
+          <li><a href="/shop">Products</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 24/4 sukrabad, Dhaka</p>
+          <p><i class="fas fa-phone"></i> +880 1234567993</p>
+          <p><i class="fas fa-envelope"></i> infofashionworld@gmail.com</p>
+      </div>
+
+      <div class="footer-section">
+          <h3>Business Hours</h3>
+          <p>Monday-Friday: 9AM - 6PM</p>
+          <p>Saturday: 10AM - 4PM</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+ <div class="footer-bottom">
+        <p>&copy; 2025 Fashion World . All Rights Reserved.</p>
+      </div>
+
+    
+  </div>
+</footer>
+    
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

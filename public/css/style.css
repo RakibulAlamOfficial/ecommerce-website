@@ -1,0 +1,1277 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+:root {
+      --primary: #009933;
+      --secondary: #0077b6;
+      --accent: #ff6b00;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --gray: #6c757d;
+      --light-bg: #ccf5ff;
+      --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'spartan', sans-serif;
+}
+
+h1{
+    font-size: 50px;
+    line-height: 64px;
+    color: #222;
+}
+
+h2{
+    font-size: 46px;
+    line-height: 54px;
+    color: #222;
+}
+
+h4{
+    font-size: 20px;
+    color: #222;
+}
+
+
+h6{
+    font-weight: 700;
+    font-size: 12px;
+}
+
+p{
+    font-size: 16px;
+    color: #465b52;
+    margin: 15px 0 20px 0;
+}
+
+.section-p1{
+    padding: 40px 80px;
+}
+
+.section-m1{
+    margin: 40px 0;
+}
+
+button.normal{
+ font-size: 14px;
+ font-weight: 600;
+ padding: 15px 30px;
+ color: #000;
+ background-color: #fff;
+ border-radius: 4px;
+ cursor: pointer;
+ border: none;
+ outline: none;
+ transition: 0.2s;
+}
+button.white{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 11px 18px;
+    color: #ffffff;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid #fff;
+    outline: none;
+    transition: 0.2s;
+   }
+
+body{
+    width: 100%;
+}
+
+
+#header .logo{
+    
+    width: 80px;
+    height: auto;
+    background: transparent;
+}
+
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #e2e2ec;
+
+    box-shadow: 0 5px 15px rgba( 0 , 0 , 0 , 0.06 );
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.5s ease;
+}
+
+
+#navbar li a:hover,
+#navbar li a.active{
+color: #088178;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: '';
+    width: 30%;
+    height: 2px;
+    background: #088178;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+#mobile{
+   display: none;
+   align-items: center;
+}
+
+#close{display: none;}
+#hero{
+    background-image: url(/img/logo/520.jpeg);
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 25% right 0;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;   
+}
+
+#hero h4{
+    padding-bottom: 15px;
+}
+
+#hero h1{
+    color:#088178 ;
+}
+#hero p{
+    color: rgb(8, 44, 204);
+}
+
+#hero button{
+    background-image: url(/img/logo/download.jpeg);
+    background-color: transparent;
+    color: #088178;
+    border: 0;
+    padding: 14px 60px 14px 60px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+#feature{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#feature .fe-box{
+    width: 180px;
+    text-align: center;
+    padding: 25px 15px;
+    box-shadow: 20px 20px 34px rgba( 0, 0, 0, 0.03);
+    border: 1px solid #cce7d0;
+    border-radius: 4px;
+    margin: 15px 0;
+}
+
+#feature .fe-box:hover{
+    box-shadow: 10px 10px 54px rgba( 70, 62, 221, 0.01);
+}
+
+#feature .fe-box img{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#feature .fe-box h6{
+    display: inline-block;
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius: 4px;
+    color: #088178;
+    background-color: #fddde4;
+}
+
+#feature .fe-box:nth-child(2) h6{
+   background-color: #cdebbc;
+}
+
+#feature .fe-box:nth-child(3) h6{
+    background-color: #d1ef82;
+ }
+
+ #feature .fe-box:nth-child(4) h6{
+    background-color: #cdd4f8;
+ }
+
+ #feature .fe-box:nth-child(5) h6{
+    background-color: #f6dbf6;
+ }
+
+ #feature .fe-box:nth-child(6) h6{
+    background-color: #fff2e5;
+ }
+
+
+ #product1{
+    text-align: center;
+ }
+
+ #product1 .pro-container{
+display: flex;
+justify-content: space-between;
+padding-top: 20px;
+flex-wrap: wrap;
+ }
+ 
+ #product1 .pro{
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba( 0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+ }
+ #product1 .pro:hover{
+    box-shadow: 20px 20px 30px rgba( 0, 0, 0, 0.06);
+ }
+
+ #product1 .pro img{
+   width: 100%;
+   border-radius: 20px; 
+ }
+
+ #product1 .pro .des{
+    text-align: start;
+    padding: 10px 0;
+ }
+ #product1 .pro .des span{
+    color: #606063;
+    font-size: 12px;
+ }
+
+ #product1 .pro .des h5{
+    padding: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+ }
+ #product1 .pro .des i{
+    font-size: 12px;
+    color:rgb(243, 181, 25);
+ }
+ #product1 .pro .des h4{
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #088178;
+ }
+ #product1 .pro .shop {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    background-color: #e8f6ea;
+    font-weight: 500;
+    color: #088178;
+    border: 1px solid #82a087 ;
+    position: absolute;
+    bottom:20px ;
+    right: 10px;
+ }
+ 
+ #banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(/img/features/2nd.jpeg);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+
+ }
+ #banner h4{
+    color: #fff;
+    font-size: 16px;
+ }
+ #banner h2{
+    color: #fff;
+    font-size: 30px;
+    padding: 10px 0;
+ }
+ #banner h2 span{
+    color: red;
+   
+ }
+ #banner button:hover{
+    background: #088178;
+    color: #fff;
+ }
+
+ #sm-banner{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+ }
+
+ #sm-banner .banner-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    background-image: url(/img/banner/b1.jpeg);
+    min-width: 580px;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+
+ }
+
+ #sm-banner .banner-box2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    background-image: url(/img/banner/b3.jpeg);
+    min-width: 580px;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+ }
+
+ #sm-banner h4{
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+ }
+
+ #sm-banner h2{
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+ }
+ #sm-banner span{
+    color: rgb(20, 165, 158);
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 15px;
+ }
+ #sm-banner .banner-box:hover  button{
+    background: #088178;
+    border: 1px solid #088178;
+ }
+
+ #sm-banner .banner-box2:hover  button{
+    background: #088178;
+    border: 1px solid #088178;
+ }
+
+ #banner3 {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   padding: 0 80px;
+ }
+
+
+ #banner3 .banner-box{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   background-image: url(/img/banner/b2.jpeg);
+   min-width: 30%;
+   height: 30vh;
+   background-size: cover;
+   background-position: center;
+   padding: 20px;
+   margin-bottom: 20px;
+}
+
+#banner3 .banner-box2{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   background-image: url(/img/banner/b4.jpeg);
+   min-width: 30%;
+   height: 30vh;
+   background-size: cover;
+   background-position: center;
+   padding: 20px;
+   margin-bottom: 20px;
+}
+
+#banner3 .banner-box3{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   background-image: url(/img/banner/b5.jpeg);
+   min-width: 30%;
+   height: 30vh;
+   background-size: cover;
+   background-position: center;
+   padding: 20px;
+   margin-bottom: 20px
+}
+
+#banner3 h2{
+   color:#fff ;
+   font-weight: 900;
+   font-size: 22px;
+}
+#banner3 h3{
+   color: red ;
+   font-weight: 800;
+   font-size: 15px;
+}
+
+
+#newslatter{
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   align-items: center;
+   background-image: url(/img/banner/email.jpeg);
+   background-repeat: no-repeat;
+   background-position: 20% 30%;
+   background-color: #041e42;
+}
+#newslatter h4{
+   font-size: 22px;
+   font-weight: 700;
+   color: #fff;
+}
+#newslatter p{
+   font-size: 14px;
+   font-weight: 600;
+   color: #818ea0;
+}
+#newslatter p span{
+   color: #e20909;
+} 
+
+#newslatter .from{
+   display: flex;
+   width: 40%;
+}
+
+#newslatter input{
+   height: 3.125rem;
+   padding: 0 1.25em;
+   font-size: 14px;
+   width: 100%;
+   border: 1px solid transparent;
+   border-radius: 4px;
+   outline: none;
+   border-top-right-radius: 0;
+   border-bottom-right-radius: 0;
+}
+#newslatter button{
+   background-color:#088178 ;
+   color: #fff;
+   white-space: nowrap;
+   border-top-right-radius: 0;
+   border-bottom-right-radius: 0;
+}
+
+
+@media(max-width:799px){
+   #navbar {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: fixed;
+      top: 0;
+      right: -300px;
+      height: 100vh;
+      width: 300px;
+      background-color: #e3e6f3;
+      box-shadow: 0 40px 60px rgba(0,0,0,0.1);
+      padding: 20px 0 0 10px;
+      transition: 0.3s;
+    
+  }
+
+  #navbar.active{
+   right: 0px;
+  }
+  #navbar li{
+   margin-bottom: 25px;
+  }
+  #mobile{
+   display: flex;
+   align-items: center;
+}
+
+#mobile i{
+  color: #1a1a1a;
+  font-size: 20px;
+  padding: 7px;
+}
+#close{
+ padding: 100px;
+  top: 30px;
+  left: 30px;
+   color: #222;
+   font-size: 24px;
+   display: initial;
+}
+
+}
+
+/* ============================================ */
+/* ===== START OF RESPONSIVE CSS CODE ===== */
+/* ============================================ */
+
+/* A good practice: make images and videos flexible by default */
+
+
+
+
+
+
+
+
+
+#page-header{
+   background-image:url(/img/logo/d.jpeg);
+   width: 100%;
+   height: 40vh;
+   background-size: cover;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   text-align: center;
+   padding: 14px
+}
+
+#page-header h2,
+#page-header p{
+   color: #088178;
+}
+
+#pagination{
+   text-align: center;
+}
+  
+#pagination a{
+   text-decoration: none;
+   background-color:#088178 ;
+   padding: 15px 20px;
+   border-radius: 4px;
+   color: #fff;
+   font-weight: 600;
+}
+
+#pagination a i{
+   font-size: 16px;
+   font-weight: 600;
+}
+
+#prodeatails{
+   display: flex;
+   margin-top: 20px;
+}
+
+#prodeatails .single-pro-image{
+   width: 40%;
+   margin-right: 50px;
+}
+
+.smallimggtoup{
+   display: flex;
+   justify-content: space-between;
+}
+
+.small-img-col{
+   flex-basis: 24%;
+   cursor: pointer;
+}
+
+#prodeatails .single-pro-deatils{
+   width: 50%;
+   padding-top: 30px;
+}
+
+#prodeatails .single-pro-deatils h4{
+   padding: 40px 0 20px 0;
+}
+#prodeatails .single-pro-deatils h2{
+   font-size: 26px;
+}
+
+#prodeatails .single-pro-deatils select{
+   display: block;
+   padding: 5px 10px;
+   margin-bottom: 10px;
+}
+
+#prodeatails .single-pro-deatils input{
+   width: 50px;
+   height: 47px;
+   padding-left: 10px;
+   font-size: 16px;
+   margin-right: 10px;
+}
+
+#prodeatails .single-pro-deatils button{
+   background: #088178;
+   color: #fff;
+}
+
+#prodeatails .single-pro-deatils input:focus{
+  outline: none; 
+}
+
+#prodeatails .single-pro-deatils span{
+   line-height: 25px;
+}
+
+#page-header.about-me{
+   background-image: url(/img/logo/gg.jpeg);
+}
+
+#about-head{
+  display: flex;
+  align-items: center; 
+  flex-direction: column;
+}
+
+#about-head img{
+   width: 50%;
+   height: auto;
+   padding:10px;
+}
+
+#about-head div{
+ padding-left: 40px;
+}
+
+#about-app{
+   text-align: center;
+}
+#about-app .video{
+   width: 70%;
+   height: 50%;
+   margin: 30px auto 0 auto;
+}
+
+#about-app .video video{
+   width: 100%;
+   height: 50%;
+   border-radius: 20px;
+}
+
+#contact-deatails{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+#contact-deatails .details{
+   width: 40%;
+}
+
+#contact-deatails .details span,
+#form-deatails form span
+{
+   font-size: 12px;
+}
+#contact-deatails .details h2,
+#form-deatails form h2
+{
+   font-size: 26px;
+   line-height: 35px;
+   padding: 20px 0;
+}
+
+#contact-deatails .details h3{
+   font-size: 16px;
+   padding-bottom: 15px;
+  
+}
+
+#contact-deatails .details li{
+  list-style: none;
+  display: flex;
+  padding: 10px 0;
+
+}
+
+#contact-deatails .details li i{
+   font-size: 14px;
+   padding-right: 22px;
+}
+
+#contact-deatails .details li p{
+   margin: 0;
+   font-size: 14px;
+}
+
+#contact-deatails .map{
+   width: 55%;
+   height: 400px;
+}
+
+#contact-deatails .map iframe{
+   width: 100%;
+   height: 100%;
+}
+
+#form-deatails form{
+   width: 65%;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+
+}
+
+#form-deatails form input ,
+#form-deatails form textarea
+{
+   width: 100%;
+   padding: 12px 15px;
+   outline: none;
+   margin-bottom: 20px;
+   border: 1px solid #e1e1e1;
+}
+#form-deatails form button{
+   background-color: #088178;
+}
+
+.people div{
+   padding-bottom: 25px;
+   display: flex;
+   align-items: flex-start;
+}
+
+ .people img{
+   height: 75px;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-right: 15px;
+}
+
+.people div p{
+   margin: 0;
+   font-size: 13px;
+   line-height: 25px;
+}
+
+.people div p span{
+   display: block;
+   font-size: 16px;
+   font-weight: 600;
+   color: black;
+}
+
+#form-deatails{
+   display: flex;
+   justify-content: space-between;
+   margin: 30px;
+   padding: 80px;
+   border: 1px solid #e1e1e1;
+}
+/* ============================================ */
+/* ===== NEW RESPONSIVE FOOTER STYLES ===== */
+/* ============================================ */
+
+/* --- Base Footer Styles (for Desktop and larger screens) --- */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 40px 80px 20px 80px; /* Adjusted padding */
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    /* On large screens, fit as many 250px columns as possible */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px; /* Increased gap for better spacing */
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.footer-section p,
+.footer-section li {
+    margin-bottom: 10px;
+    color: #ccc;
+    font-size: 14px; /* Standard font size */
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Tablet View (screens up to 799px wide) --- */
+@media (max-width: 799px) {
+
+    /* --- General Adjustments --- */
+    .section-p1 {
+        padding: 40px 40px; /* Reduce side padding on tablets */
+    }
+
+    h1 {
+        font-size: 38px;
+        line-height: 50px;
+    }
+    h2 {
+        font-size: 34px;
+        line-height: 44px;
+    }
+
+    /* --- Home Page --- */
+    #hero {
+        padding: 0 40px; /* Reduce hero padding */
+        background-position: top 30% right 30%;
+    }
+
+    #feature {
+        justify-content: center; /* Center the feature boxes */
+        gap: 15px; /* Add some space between them */
+    }
+
+    #feature .fe-box {
+        width: 155px; /* Adjust size to fit better */
+        margin: 15px;
+    }
+
+    #product1 .pro-container {
+        justify-content: center; /* Center the product cards */
+        gap: 20px; /* Add space between cards */
+    }
+    
+    #product1 .pro {
+        width: 45%; /* Show 2 products per row */
+        margin: 15px 0;
+    }
+
+    #banner {
+        height: 30vh;
+    }
+
+    #sm-banner .banner-box {
+        min-width: 100%; /* Make banners full width */
+        height: 30vh;
+        margin-bottom: 20px;
+    }
+    
+    #sm-banner .banner-box2 {
+       margin-top: 0;
+    }
+
+    #banner3 {
+        padding: 0 40px; /* Reduce side padding */
+    }
+    
+    #banner3 .banner-box {
+        width: 28%; /* Adjust width for smaller screens */
+    }
+
+    #newslatter .from {
+        width: 70%;
+    }
+    
+    footer .footer-content{
+        gap: 40px;
+    }
+     footer {
+        padding: 40px; /* Reduce padding for tablets */
+    }
+
+    .footer-content {
+        /* Switch to a 2-column grid */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    /* --- Single Product Page --- */
+    #prodeatails {
+        flex-direction: column; /* Stack image and details vertically */
+    }
+    
+    #prodeatails .single-pro-image {
+        width: 100%;
+        margin-right: 0px;
+    }
+    
+    #prodeatails .single-pro-deatils {
+        width: 100%;
+        padding-top: 20px;
+    }
+    
+    /* --- About Page --- */
+    #about-head{
+        flex-direction: column;
+    }
+    #about-head img{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    #about-head div{
+        padding-left: 0;
+    }
+    
+    #about-app .video{
+       width: 100%; /* Make video container full width */
+    }
+
+    /* --- Contact Page --- */
+    #contact-deatails {
+        flex-direction: column; /* Stack details and map vertically */
+    }
+
+    #contact-deatails .details {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    #contact-deatails .map {
+        width: 100%;
+    }
+
+    #form-deatails {
+        padding: 40px;
+        flex-direction: column; /* Stack form and people list */
+    }
+
+    #form-deatails form {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+
+/* --- Mobile View (screens up to 480px wide) --- */
+@media (max-width: 480px) {
+
+    /* --- General Adjustments --- */
+    .section-p1 {
+        padding: 20px;
+    }
+    #header {
+        padding: 10px 30px;
+    }
+
+    h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    h2 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    /* --- Home Page --- */
+    #hero {
+        padding: 0 20px;
+        background-position: 55%; /* Center background image */
+    }
+
+    #feature {
+        justify-content: space-between;
+    }
+    
+    #feature .fe-box {
+        width: 46%; /* Show 2 features per row */
+        margin: 0 0 15px 0;
+    }
+    
+    #product1 .pro {
+        width: 100%; /* Show 1 product per row */
+    }
+    
+    #banner {
+        height: 40vh; /* Give banner a bit more height on mobile */
+    }
+    
+    #banner h2{
+        font-size: 24px;
+    }
+
+    #banner3 {
+        padding: 0 20px;
+    }
+    
+    #banner3 .banner-box {
+        width: 100%; /* Stack all 3 banners vertically */
+    }
+    
+    #newslatter {
+        padding: 40px 20px;
+        flex-direction: column; /* Stack text and form */
+    }
+    
+    #newslatter .newstext h4 {
+        font-size: 18px;
+    }
+
+    #newslatter .from {
+        width: 100%; /* Make form full width */
+        margin-top: 20px;
+    }
+
+    /* --- Single Product Page (for small screens) --- */
+    .smallimggtoup {
+        gap: 5px; /* Reduce gap between small images */
+    }
+    
+    #prodeatails .single-pro-deatils h2 {
+        font-size: 22px;
+    }
+    
+    /* --- Contact Page --- */
+    #form-deatails {
+        padding: 20px;
+    }
+    
+    /* --- Footer --- */
+      footer {
+        padding: 30px 20px; /* Further reduce padding for phones */
+    }
+
+    .footer-content {
+        /* Keep the 2-column grid, but reduce the gap */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .footer-section h3 {
+        font-size: 16px; /* Slightly smaller heading */
+    }
+
+    .footer-section p,
+    .footer-section li {
+        font-size: 13px; /* Slightly smaller text to fit */
+    }
+    footer .footer-section{
+        text-align: center;
+    }
+    footer .footer-section h3::after{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+   }
+   
+   /* ============================================ */
+/* ========= ADMIN PANEL STYLES ========= */
+/* ============================================ */
+
+/* --- Admin Header & General Layout --- */
+.admin-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 20px 40px;
+    margin-bottom: 30px;
+}
+
+.admin-header h1 {
+    font-size: 28px;
+    color: #343a40;
+}
+
+.admin-header a {
+    text-decoration: none;
+    color: #088178;
+    font-weight: 600;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.admin-header a:hover {
+    color: #055a54;
+}
+
+/* --- Add Product Form --- */
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+.admin-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.admin-form input:focus {
+    outline: none;
+    border-color: #088178;
+}
+
+.admin-form button.normal {
+    align-self: flex-start; /* Button doesn't stretch full-width */
+    background-color: #088178;
+    color: #fff;
+    border: none;
+}
+
+.admin-form button.normal:hover {
+    background-color: #055a54;
+}
+
+/* --- Existing Products Table --- */
+.admin-table-container {
+    overflow-x: auto; /* Makes table scrollable on small screens */
+}
+
+.admin-table-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.admin-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-table-container thead {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.admin-table-container th,
+.admin-table-container td {
+    padding: 15px;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+
+.admin-table-container tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.admin-table-container tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.admin-table-container img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+
+
+/* Admin Edit/Delete Button Styles */
+.btn-edit, .btn-delete {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
+.btn-edit { background-color: #007bff; }
+.btn-delete { background-color: #dc3545; }
+
+/* Admin Edit Form Labels */
+.admin-form label {
+    font-weight: 600;
+    margin-bottom: -5px;
+    margin-top: 10px;
+}
+
+
+/* ============================================ */
+/* ===== END OF RESPONSIVE CSS CODE ===== */
+/* ============================================ */

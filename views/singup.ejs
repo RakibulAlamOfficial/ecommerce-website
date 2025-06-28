@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Page Sign Up </title>
+  <!-- This is the NEW, CORRECTED Favicon link -->
+<link rel="icon" type="image/x-icon" href="/img/logo/favicon.ico">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4./css/all.min.css" rel="stylesheet" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: '';
+  padding: '';
+  font-family: 'Montserrat', sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background: rgb(212, 168, 110);
+  color: black;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  font-weight: 20;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  align-items:center;
+  justify-content: center;
+  
+}
+
+.lolo {
+  font-size: 1.5rem;
+  align-items: center;
+  
+  justify-content: space-between;
+  
+ 
+  
+}
+.logo img{
+  border-radius: 45%;
+  border: transparent;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  text-transform: lowercase;
+  transition: color .3s;
+}
+
+.nav-links a:hover {
+  color: #ba7f;
+}
+
+.nav-links .search i {
+  font-size: 1.2rem;
+}
+
+main {
+  height: calc(100% - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.219);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px 50px;
+  width: 320px;
+  box-shadow:  8px 32px  rgba(77, 26, 65, 0.37);
+  text-align: center;
+}
+
+.login-container h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.login-container h2 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #131314;
+  text-transform: lowercase;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #9e2020;
+  font-size: 1.1rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background: rgba(255, 255, 255, .8);
+  color: #3a2a6a;
+  transition: background .3s;
+}
+
+.input-group input::placeholder {
+  color: #7a6fae;
+}
+
+.input-group input:focus {
+  background: white;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .9rem;
+  color: #4a32be;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.remember-me input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-footer a {
+  color: #ec0901;
+  font-size: .85rem;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.form-footer a:hover {
+  color: white;
+}
+
+.form-footer button {
+  background: linear-gradient(90deg, #5a4f9a, #3a2a6a);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background .3s;
+}
+
+.form-footer button:hover {
+  background: linear-gradient(90deg, #3a2a6a, #5a4f9a);
+}
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: .9rem;
+  color: #ba7f7d;
+  user-select: none;
+}
+
+footer .freepik {
+  font-weight: 700;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+ <nav class="navbar">
+    <div class="logo"><img src="/public/img/logo/4.jpg" alt="">
+    
+    </div>
+    <div class="lolo">Fashion World</div>
+   
+  </nav>
+
+  <main>
+    <div class="login-container">
+      <h1>JOIN US!</h1>
+      <h2>create your account</h2>
+      <form action="/signup" method="POST">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="user name" required name="username" />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="email address" required name="email"/>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="password" required  name="password"/>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="confirm password" required />
+        </div>
+        <div class="form-footer" style="justify-content: center;">
+          <button type="submit">sign up</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    designed by <span class="freepik">freepik</span>
+  </footer>
+</body>
+</html>

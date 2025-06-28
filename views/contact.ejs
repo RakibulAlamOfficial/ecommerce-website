@@ -1,0 +1,186 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion World</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- This is the NEW, CORRECTED Favicon link -->
+<link rel="icon" type="image/x-icon" href="/img/logo/favicon.ico">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"  />
+</head>
+<body>
+     <section id="header">
+        <a href="#"><img src="/img/logo/4.jpg" class="logo" alt=""></a>
+     <div>
+        <ul id="navbar">
+             <li><a class="" href="/">home</a></li>
+             <li><a href="/shop">shop</a></li>
+             <li><a href="/about">About</a></li>
+             <li><a class="active" href="/contact">contact</a></li>
+             <li class="lg-bag"><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <!-- This is the NEW dynamic login/logout section -->
+
+<!-- Find and replace your entire login/logout if/else block with this -->
+
+<% if (isLoggedIn) { %>
+    <!-- If the user IS logged in... -->
+    <li><span>Welcome, <%= username %>!</span></li>
+    
+    <% if (isAdmin) { %>
+        <!-- ...AND they are an admin, show the admin link -->
+        <li><a href="/admin/products" style="color: red; font-weight: bold;">Admin Panel</a></li>
+    <% } %>
+
+    <li><a href="/logout">Logout</a></li>
+
+<% } else { %>
+    <!-- If the user IS NOT logged in, show this: -->
+    <li><a href="/login"><i class="fa-solid fa-user"></i></a></li>
+    <li><a href="/signup">Signup</a></li>
+<% } %>
+            <a href="#" id="close"><i class="far fa-times"></i></a>
+          
+             
+        </ul>
+    </div>
+  <div id="mobile">
+    <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+    <i id="bar" class="fas fa-outdent"></i>
+  </div>
+    </section>
+
+     <section id="page-header" class="about-me">
+        
+        <h2>#Lets talk</h2>
+       
+        <p>LEave A Massage,we love to hear from you. </p>
+       
+     </section>
+
+     <section id="contact-deatails" class="section-p1">
+        <div class="details">
+            <span>Get in touch</span>
+            <h2>vesite our place and contact us today</h2>
+            <h3>head office</h3>
+            <div>
+                <li>
+                    <i class="fa-solid fa-map"></i>
+                    <p>25/4 sukrabad dhanmondi dhaka</p>
+                </li>
+                <li>
+                  <i class="fa-solid fa-envelope-open-text"></i>
+                    <p>contect@gmail.com</p>
+                <li>
+               <i class="fa-solid fa-phone"></i>
+               <p>017*******1</p> </li>
+               <li>
+
+                <i class="fa-solid fa-clock"></i>
+               <p>sunday to friday 9.30 am. to 11.00 pm.</p>
+               </li>
+                
+            </div>
+        </div>
+        <div class="map">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.899206033249!2d90.37100707371056!3d23.
+           750973478670037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf4d6018f643%3A0x603d2d083289b4a3!
+           2sDhanmondi%2032%20Road%20Bridge%2C%20Dhanmondi%20Bridge%2C%20Dhaka%201209!5e0!3m2!1sen!2sbd!4v1747571363674!5m2!1sen!2sbd" 
+           width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+     </section>
+<section id="form-deatails">
+    <form action="/submit-contact" method="POST">
+        <span>LEAVE A MASSAGE</span>
+        <h2>We love to here from you </h2>
+        <input type="text" placeholder="Your name" name="name">
+         <input type="text" placeholder="E-mail" name="email">
+          <input type="text" placeholder="Subject" name="Subject">
+          <textarea name="" id="" cols="30" rows="10" aria-placeholder="Your thoughts" name="message"></textarea>
+          <button class="normal">submit</button>
+
+    </form>
+
+    <div class="people">
+        <div>
+            <img src="/img/logo/people 1.jpeg" alt="">
+            <p><span>whils smith</span>official manager 
+                <br>phone:018*******9 <br>
+            e-mail : manager@gmail.com </p>
+        </div>
+          <div>
+            <img src="/img/logo/people2.jpeg" alt="">
+            <p><span>frances mekail</span>official co manager 
+                <br>phone:016*******9 <br>
+            e-mail : manager@gmail.com </p>
+        </div>
+          <div>
+            <img src="/img/logo/people3.jpeg" alt="">
+            <p><span>Bristy </span>marketing manager 
+                <br>phone:015*******9 <br>
+            e-mail : manager@gmail.com </p>
+        </div>
+    </div>
+</section>
+
+
+<section id="newslatter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>sign up for newslatter</h4>
+        <p>Get E-mail updates about our products <span> new offers</span></p>
+    </div>
+    <div class="from">
+        <input type="text" placeholder="your email address">
+        <button class="normal">sign up</button>
+    </div>
+</section>
+  
+ <footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Fashion world</h3>
+        <p>Leading provider of premium Women Clothings </p>
+      </div>
+     
+
+       <div class="footer-section">
+        <h3>Quick Link</h3>
+        <ul>
+          <li><a href="/">home</a></li>
+          <li><a href="/shop">Products</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 24/4 sukrabad, Dhaka</p>
+          <p><i class="fas fa-phone"></i> +880 1234567993</p>
+          <p><i class="fas fa-envelope"></i> infofashionworld@gmail.com</p>
+      </div>
+
+      <div class="footer-section">
+          <h3>Business Hours</h3>
+          <p>Monday-Friday: 9AM - 6PM</p>
+          <p>Saturday: 10AM - 4PM</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+ <div class="footer-bottom">
+        <p>&copy; 2025 Fashion World . All Rights Reserved.</p>
+      </div>
+
+    
+  </div>
+</footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
+</body>
+</html>

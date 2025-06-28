@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion World</title>
+    <link rel="stylesheet" href="/css/style.css">
+   <!-- This is the NEW, CORRECTED Favicon link -->
+<link rel="icon" type="image/x-icon" href="/img/logo/favicon.ico">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"  />
+</head>
+<body>
+     <section id="header">
+        <a href="#"><img src="/img/logo/4.jpg" class="logo" alt=""></a>
+    <div>
+        <ul id="navbar">
+             <li><a class="" href="index.ejs">home</a></li>
+             <li><a class="" href="/shop">shop</a></li>
+            <li><a class="active" href="/about">About</a></li>
+             <li><a class="" href="/contact">contact</a></li>
+             <li class="lg-bag"><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <!-- This is the NEW dynamic login/logout section -->
+
+<!-- Find and replace your entire login/logout if/else block with this -->
+
+<% if (isLoggedIn) { %>
+    <!-- If the user IS logged in... -->
+    <li><span>Welcome, <%= username %>!</span></li>
+    
+    <% if (isAdmin) { %>
+        <!-- ...AND they are an admin, show the admin link -->
+        <li><a href="/admin/products" style="color: red; font-weight: bold;">Admin Panel</a></li>
+    <% } %>
+
+    <li><a href="/logout">Logout</a></li>
+
+<% } else { %>
+    <!-- If the user IS NOT logged in, show this: -->
+    <li><a href="/login"><i class="fa-solid fa-user"></i></a></li>
+    <li><a href="/signup">Signup</a></li>
+<% } %>
+            <a href="#" id="close"><i class="far fa-times"></i></a>
+          
+             
+        </ul>
+    </div>
+  <div id="mobile">
+    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+    <i id="bar" class="fas fa-outdent"></i>
+  </div>
+    </section>
+
+     <section id="page-header" class="about-me">
+        
+        <h2>#Knowus</h2>
+       
+        <p>Lorem ipsum dolor sit amet consectetur. </p>
+       
+     </section>
+
+<section id="about-head" class="section-p1">
+    <img src="/img/logo/6036.jpeg" alt="">
+    <h2>Who We Are ?</h2>
+    <p>Lorem ipsum dolor, 
+        sit amet consectetur adipisicing elit.
+         Aut tenetur nihil amet velit eum, 
+        iste ex assumenda accusamus fugit odio sapiente,
+         minima accusantium asperiores.
+         Fuga earum saepe iste sint sunt nemo expedita libero aut temporibus. 
+         Nulla nesciunt labore laborum.
+          Dignissimos distinctio alias odit nemo officia officiis, 
+         commodi sunt dicta dolor ipsa nesciunt accusamus consectetur quia harum pariatur,
+         ipsum quasi sed!</p>
+         <abbr title="">Create stunning images with as much or as 
+            little control as you like thanks 
+            to a choice of Basic and Creative modes</abbr>
+            <br><br>
+        <marquee bgcolor="#ccc" loop="-1" scrollamount="5"width="100%">Create stunning images with 
+            as much or as 
+            little control as you like thanks 
+            to a choice of Basic and Creative modes</marquee>
+
+</section>
+
+<section id="about-app" class="section-p1">
+    <h1>Download Our <a href="#">App</a></h1>
+    <div class="video">
+        <video autoplay muted loop height="10%" src="/img/logo/video.mp4"></video>
+    </div>
+</section>
+
+<section id="feature" class="section-p1">
+    <div class="fe-box" >
+        <img src="/img/features/f1.png" alt="">
+        <h6>Free shipping</h6>
+    </div>
+    <div class="fe-box">
+        <img src="/img/features/f2.png" alt="">
+        <h6>Online Order</h6>
+    </div>
+    <div class="fe-box">
+        <img src="/img/features/f3.png" alt="">
+        <h6>Save Money</h6>
+    </div>
+    <div class="fe-box">
+        <img src="/img/features/f4.png" alt="">
+        <h6>Promotion</h6>
+    </div>
+    <div class="fe-box">
+        <img src="/img/features/f5.png" alt="">
+        <h6>Happy  Sell</h6>
+    </div>
+    <div class="fe-box">
+        <img src="/img/features/f6.png" alt="">
+        <h6>F24/7 Support</h6>
+    </div>
+</section>
+
+<section id="newslatter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>sign up for newslatter</h4>
+        <p>Get E-mail updates about our products <span> new offers</span></p>
+    </div>
+    <div class="from">
+        <input type="text" placeholder="your email address">
+        <button class="normal">sign up</button>
+    </div>
+</section>
+  
+ <footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Fashion world</h3>
+        <p>Leading provider of premium Women Clothings </p>
+      </div>
+     
+
+      <div class="footer-section">
+        <h3>Quick Link</h3>
+        <ul>
+          <li><a href="/">home</a></li>
+          <li><a href="/shop">Products</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 24/4 sukrabad, Dhaka</p>
+          <p><i class="fas fa-phone"></i> +880 1234567993</p>
+          <p><i class="fas fa-envelope"></i> infofashionworld@gmail.com</p>
+      </div>
+
+      <div class="footer-section">
+          <h3>Business Hours</h3>
+          <p>Monday-Friday: 9AM - 6PM</p>
+          <p>Saturday: 10AM - 4PM</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+ <div class="footer-bottom">
+        <p>&copy; 2025 Fashion World . All Rights Reserved.</p>
+      </div>
+
+    
+  </div>
+</footer>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

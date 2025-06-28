@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard Fashion World</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- This is the NEW, CORRECTED Favicon link -->
+<link rel="icon" type="image/x-icon" href="/img/logo/favicon.ico">
+</head>
+<body>
+    <section class="section-p1">
+        <h1>Admin Dashboard</h1>
+        <p>Welcome, <%= username %>! Select a section to manage.</p>
+        <br>
+        <!-- This is your new admin navigation menu -->
+        <nav class="admin-nav">
+            <a href="/admin/products" class="normal">Manage Products</a>
+            <a href="/admin/banners" class="normal">Manage Banners</a>
+        </nav>
+        <br>
+        <hr>
+        <br>
+        <a href="/">← Back to Main Site</a> | <a href="/logout">Logout</a>
+    </section>
+</body>
+</html>
